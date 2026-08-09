@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 CLIENT_ID = '1536106549955797042'
-CLIENT_SECRET = 'JN4_CHNA_55vvjffmgX2jYmUGH5qYyad'
+CLIENT_SECRET = 'IaOPEx23_7OKmI-v_1Aol8pyfDY-5Cae'
 REDIRECT_URI = 'https://my-discord-bot-0c4y.onrender.com'
 
 @app.route('/')
