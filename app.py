@@ -9,8 +9,8 @@ CLIENT_ID = '1536106549955797042'
 CLIENT_SECRET = 'laOPEx23_70KMl-v_1aol8pyFDY-5Cae'
 REDIRECT_URI = 'https://my-discord-bot-0c4y.onrender.com'
 
-# حط ايدي حسابك هنا عشان تكون لوحة التحكم خاصة بك وحدك
-MY_DISCORD_ID = '1536106549955797042' # <--- حط الايدي حقك الصحيح هنا
+# ايدي حسابك المعتمد للوحة التحكم
+MY_DISCORD_ID = '1536106549955797042'
 
 @app.route('/')
 def home():
@@ -59,7 +59,7 @@ def home():
     banner_url = f"https://cdn.discordapp.com/banners/{user_id}/{banner}.png?size=600" if banner else ""
 
     # شرط الحماية: إذا لم يكن المستخدم أنت، تظهر له صفحة رفض الوصول
-    if user_id != MY_DISCORD_ID:909552540973166642
+    if user_id != MY_DISCORD_ID:
         return f'''
             <div style="text-align: center; margin-top: 100px; font-family: Tahoma; background-color: #2f3136; color: white; padding: 40px; border-radius: 10px; width: 450px; margin-left: auto; margin-right: auto;">
                 <img src="{avatar_url}" style="width: 80px; height: 80px; border-radius: 50%;">
