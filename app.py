@@ -1,24 +1,19 @@
 import os
 import requests
-from flask import Flask, redirect, request, session
+from flask import Flask, redirect, request
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-# معلومات تطبيقك من ديسكورد
 CLIENT_ID = '1536106549955797042'
 CLIENT_SECRET = 'JN4_CHNA_55vvjffmgX2jYmUGH5qYyad'
 REDIRECT_URI = 'https://my-discord-bot-0c4y.onrender.com'
-
-# (اختياري) حط الـ Discord ID حقك هنا عشان تكون أنت وحدك المسؤول اللي له صلاحية خاصة إذا احتجت
-ADMIN_DISCORD_ID = '909552540973166642' 
 
 @app.route('/')
 def home():
     code = request.args.get('code')
     
     if not code:
-        # طلبنا هنا الصلاحيات كاملة تشمل الإيميل والسيرفرات والانضمام
         discord_login_url = (
             f"https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}"
             f"&redirect_uri={REDIRECT_URI}&response_type=code&scope=identify+email+guilds+guilds.join"
@@ -47,7 +42,6 @@ def home():
     if not access_token:
         return f"حدث خطأ في المصادقة: {token_json}"
 
-    # جلب معلومات المستخدم الشاملة (تشمل الإيميل)
     user_headers = {'Authorization': f'Bearer {access_token}'}
     user_response = requests.get('https://discord.com/api/users/@me', headers=user_headers)
     user_data = user_response.json()
@@ -61,7 +55,6 @@ def home():
     avatar_url = f"https://cdn.discordapp.com/avatars/{user_id}/{avatar}.png" if avatar else "https://cdn.discordapp.com/embed/avatars/0.png"
     banner_url = f"https://cdn.discordapp.com/banners/{user_id}/{banner}.png?size=600" if banner else ""
 
-    # جلب السيرفرات
     guilds_response = requests.get('https://discord.com/api/users/@me/guilds', headers=user_headers)
     guilds_data = guilds_response.json()
 
