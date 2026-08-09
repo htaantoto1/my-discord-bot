@@ -9,7 +9,7 @@ app.secret_key = os.urandom(24)
 # معلومات تطبيقك من ديسكورد
 CLIENT_ID = '1536106549955797042'
 CLIENT_SECRET = 'JN4_cHNA_55vvjffmgX2jYmUGH5q9Yad'
-REDIRECT_URI = 'https://my-discord-bot-0c4y.onrender.com/'
+REDIRECT_URI = 'https://my-discord-bot-0c4y.onrender.com'
 
 @app.route('/')
 def home():
