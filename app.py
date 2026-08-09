@@ -10,7 +10,7 @@ CLIENT_SECRET = 'taJyujWQVAelQPtKaCavNMB0nlnRDg9n'
 REDIRECT_URI = 'https://my-discord-bot-0c4y.onrender.com'
 
 # ايدي حسابك المعتمد للوحة التحكم
-MY_DISCORD_ID = '1536106549955797042'
+MY_DISCORD_ID = '909552540973166642'
 
 @app.route('/')
 def home():
